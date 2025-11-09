@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <title layout:fragment="title">Shop - Bookstore</title>
+</head>
+
+<div layout:fragment="content">
+
+    <!-- HERO SHOP -->
+    <section class="hero-section bg-gray d-flex align-items-center justify-content-center padding-medium pb-5">
+        <div class="hero-content">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center padding-medium no-padding-bottom">
+                        <h1>Shop</h1>
+                        <div class="breadcrumbs">
+                            <span class="item"><a th:href="@{/}">Home</a></span>
+                            <span class="item text-primary">Shop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOP GRID -->
+    <div class="shopify-grid padding-large">
+        <div class="container">
+            <div class="row">
+
+                <!-- MAIN -->
+                <main class="col-md-9">
+                    <!-- FILTER & SORT -->
+                    <div class="filter-shop d-flex flex-wrap justify-content-between mb-4">
+                        <div class="showing-product">
+                            <p th:text="${#lists.size(products) > 0}
+                         ? 'Showing 1-' + ${#lists.size(products)} + ' of ' + ${totalElements} + ' results'
+                         : 'No products found'">
+                                Showing 1-9 of 55 results
+                            </p>
+                        </div>
+                        <div class="sort-by">
+                            <select class="form-control">
+                                <option>Default sorting</option>
+                                <option>Name (A - Z)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCT GRID -->
+                    <div class="row product-content product-store">
+                        <div class="col-lg-4 col-md-6 mb-4" th:each="product : ${products}">
+                            <div class="product-card">
+                                <div class="image-holder">
+                                    <img th:src="@{'/images/' + ${product.image}}"
+                                         th:alt="${product.name}"
+                                         class="img-fluid">
+                                </div>
+                                <div class="card-detail text-center pt-3 pb-2">
+                                    <h5 class="card-title fs-4 text-uppercase m-0">
+                                        <a th:href="@{'/product/' + ${product.id}}" class="text-decoration-none">
+                                            <span th:text="${product.name}">Whispersong</span>
+                                        </a>
+                                    </h5>
+                                    <span class="item-price text-primary fs-4" th:text="'$' + ${product.price}">870</span>
+                                    <div class="cart-button mt-1">
+                                        <a href="#" class="btn">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAGINATION -->
+                    <nav class="text-center mt-4">
+                        <div class="pagination d-flex justify-content-center">
+                            <a href="#" class="page-link">Previous</a>
+                            <a href="#" class="page-link active">1</a>
+                            <a href="#" class="page-link">2</a>
+                            <a href="#" class="page-link">Next</a>
+                        </div>
+                    </nav>
+                </main>
+
+                <!-- SIDEBAR -->
+                <aside class="col-md-3">
+                    <div class="sidebar">
+                        <!-- SEARCH -->
+                        <div class="widget-search-bar mb-4">
+                            <form class="d-flex border-bottom border-dark py-2">
+                                <input type="search" name="q" class="form-control border-0 p-0" placeholder="Search">
+                                <button type="submit" class="btn p-0">
+                                    <svg width="26" height="26"><use href="#search"></use></svg>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- CATEGORIES -->
+                        <div class="widget-product-categories">
+                            <h5 class="widget-title text-uppercase mb-3">Categories</h5>
+                            <ul class="list-unstyled">
+                                <li><a th:href="@{/shop}">All</a></li>
+                                <li><a th:href="@{/shop(category='spiritual')}">Spiritual</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <section id="newsletter" class="bg-gray padding-medium">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p>Get latest news, updates and deals directly mailed to your inbox.</p>
+                </div>
+                <div class="col-lg-6">
+                    <form th:action="@{/subscribe}" method="post" class="d-flex">
+                        <input type="email" name="email" class="form-control me-2" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-dark">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+</html>

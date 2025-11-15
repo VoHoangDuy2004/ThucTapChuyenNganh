@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{home/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+<main layout:fragment="main-content">
+    <section class="hero-section bg-gray d-flex align-items-center justify-content-center padding-medium pb-5">
+        <div class="hero-content">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center padding-medium no-padding-bottom">
+                        <h1>About</h1>
+                        <div class="breadcrumbs">
+                <span class="item">
+                  <a th:href="@{/index}">Home ></a>
+                </span>
+                            <span class="item">About</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="company-services" class="padding-xlarge">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 pb-3">
+                    <div class="icon-box text-center">
+              <span class="icon-box-icon d-inline-block p-4 border border-accent rounded-circle mb-4">
+                <svg width="30" height="30" class="cart-outline text-primary">
+                  <use href="#cart-outline">
+                </svg>
+              </span>
+                        <div class="icon-box-content">
+                            <h4 class="card-title">Free delivery</h4>
+                            <p>Consectetur adipi elit lorem ipsumcon sectetur dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 pb-3">
+                    <div class="icon-box text-center">
+                        <div class="icon-box-icon d-inline-block p-4 border border-accent rounded-circle mb-4">
+                            <svg width="30" height="30" class="quality text-primary">
+                                <use href="#quality">
+                            </svg>
+                        </div>
+                        <div class="icon-box-content">
+                            <h4 class="card-title">Quality guarantee</h4>
+                            <p>Dolor sit amet elit lorem orem ipsu mcons ectetur adipi elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 pb-3">
+                    <div class="icon-box text-center">
+                        <div class="icon-box-icon d-inline-block p-4 border border-accent rounded-circle mb-4">
+                            <svg width="30" height="30" class="price-tag text-primary">
+                                <use href="#price-tag">
+                            </svg>
+                        </div>
+                        <div class="icon-box-content">
+                            <h4 class="card-title">Daily offers</h4>
+                            <p>Amet consectetur adipi elit loreme ipsum dolor sit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 pb-3">
+                    <div class="icon-box text-center">
+                        <div class="icon-box-icon d-inline-block p-4 border border-accent rounded-circle mb-4">
+                            <svg width="30" height="30" class="shield-plus text-primary">
+                                <use href="#shield-plus">
+                            </svg>
+                        </div>
+                        <div class="icon-box-content">
+                            <h4 class="card-title">100% secure payment</h3>
+                                <p>Rem adipi elit lopsum dolor sit amet, consectetur adipi elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section id="about" class="padding-medium">
+        <div class="container">
+            <h3 class="py-3">Who are we</h3>
+            <div class="row">
+                <div class="image-holder col-md-6 mb-3">
+                    <img th:src="@{/images/post-item1.jpg}" alt="single" class="img-fluid">
+                </div>
+                <div class="image-holder col-md-6 mb-3">
+                    <img th:src="@{/images/post-item3.jpg}" alt="single" class="img-fluid">
+                </div>
+            </div>
+            <div>
+                <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta. Ut nisl, tortor, aliquam blandit vitae vehicula vivamus leo nullam urna, scelerisque unc lectus phasellus adipiscing arcu. Tristique facilisis nunc consectetur at tempor. Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta. Ut nisl, tortor, aliquam blandit vitae vehicula vivamus leo nullam urna, scelerisque unc lectus phasellus adipiscing arcu. Tristique facilisis nunc consectetur at tempor. Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta. Ut nisl, tortor, aliquam blandit vitae vehicula vivamus leo nullam urna, scelerisque unc lectus phasellus adipiscing arcu. Tristique facilisis nunc consectetur at tempor.</p>
+                <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta. Ut nisl, tortor, aliquam blandit vitae vehicula vivamus leo nullam urna, scelerisque unc lectus phasellus adipiscing arcu. Tristique facilisis nunc consectetur at tempor.</p>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section id="testimonials" class="position-relative padding-xlarge">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-2 col-md-8">
+                    <h3 class="text-center mb-5">What our customers says</h3>
+                    <div class="review-content position-relative">
+                        <div class="swiper testimonial-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide text-center d-flex justify-content-center">
+                                    <div class="review-item">
+                                        <blockquote class="fs-1 fw-light">“A pellen tesque pretium feugiat vel morbi sagittis lorem habi tasse cursus. Suspen dise tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis.”</blockquote>
+                                        <div class="author-detail">
+                                            <div class="name fw-bold text-uppercase pt-2">Anna garcia</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide text-center d-flex justify-content-center">
+                                    <div class="review-item">
+                                        <blockquote class="fs-1 fw-light">“A pellen tesque pretium feugiat vel morbi sagittis lorem habi tasse cursus. Suspen dise tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis.”</blockquote>
+                                        <div class="author-detail">
+                                            <div class="name fw-bold text-uppercase pt-2">Anna garcia</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide text-center d-flex justify-content-center">
+                                    <div class="review-item">
+                                        <blockquote class="fs-1 fw-light">“A pellen tesque pretium feugiat vel morbi sagittis lorem habi tasse cursus. Suspen dise tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis.”</blockquote>
+                                        <div class="author-detail">
+                                            <div class="name fw-bold text-uppercase pt-2">Anna garcia</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-buttons text-center mt-5">
+                        <button class="swiper-prev testimonial-arrow-prev me-2">
+                            <svg width="41" height="41"><use href="#arrow-left"></use></svg>
+                        </button>
+                        <span>|</span>
+                        <button class="swiper-next testimonial-arrow-next ms-2">
+                            <svg width="41" height="41"><use href="#arrow-right"></use></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="our-stores" class="padding-xlarge pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="contact-item text-center">
+                        <h4 class="widget-title pb-2">Store Main</h4>
+                        <ul class="menu-list list-unstyled">
+                            <li class="menu-item pb-2">
+                                <a href="#">Tea Berry, Marinette, USA</a>
+                            </li>
+                            <li class="menu-item pb-2">
+                                <a href="#">+55 111 222 333 44</a>
+                            </li>
+                            <li class="menu-item pb-2">
+                                <a href="mailto:">yourinfo@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="contact-item text-center">
+                        <h4 class="widget-title pb-2">Store 1</h4>
+                        <ul class="menu-list list-unstyled">
+                            <li class="menu-item pb-2">
+                                <a href="#">Tea Berry, Marinette, USA</a>
+                            </li>
+                            <li class="menu-item pb-2">
+                                <a href="#">+55 111 222 333 44</a>
+                            </li>
+                            <li class="menu-item pb-2">
+                                <a href="mailto:">yourinfo@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="contact-item text-center">
+                        <h4 class="widget-title pb-2">Store 2</h4>
+                        <ul class="menu-list list-unstyled">
+                            <li class="menu-item pb-2">
+                                <a href="#">Tea Berry, Marinette, USA</a>
+                            </li>
+                            <li class="menu-item pb-2">
+                                <a href="#">+55 111 222 333 44</a>
+                            </li>
+                            <li class="menu-item pb-2">
+                                <a href="mailto:">yourinfo@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="contact-item text-center">
+                        <h4 class="widget-title pb-2">Store 3</h4>
+                        <ul class="menu-list list-unstyled">
+                            <li class="menu-item pb-2">
+                                <a href="#">Tea Berry, Marinette, USA</a>
+                            </li>
+                            <li class="menu-item pb-2">
+                                <a href="#">+55 111 222 333 44</a>
+                            </li>
+                            <li class="menu-item pb-2">
+                                <a href="mailto:">yourinfo@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="newsletter" class="bg-gray padding-medium">
+        <div class="container">
+            <div class="newsletter">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 title">
+                        <h3>Subscribe to Our Newsletter</h3>
+                        <p>Get latest news, updates and deals directly mailed to your inbox.</p>
+                    </div>
+                    <form class="col-lg-6 col-md-12 d-flex align-items-center">
+                        <div class="d-flex w-75 border-bottom border-dark py-2">
+                            <input id="newsletter1" type="text" class="form-control border-0 p-0" placeholder="Your email address here">
+                            <button class="btn border-0 p-0" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

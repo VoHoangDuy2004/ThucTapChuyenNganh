@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{home/layout}"
+>
+<head>
+    <title>Blog</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<main layout:fragment="main-content">
+<section class="hero-section bg-gray d-flex align-items-center justify-content-center padding-medium pb-5">
+    <div class="hero-content">
+        <div class="container">
+            <div class="row">
+                <div class="text-center padding-medium no-padding-bottom">
+                    <h1>Blog</h1>
+                    <div class="breadcrumbs">
+                <span class="item">
+                  <a th:href="@{/}">Home ></a>
+                </span>
+                        <span class="item">Blog</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="post-grid padding-large">
+    <div class="container">
+        <div class="row d-flex flex-wrap">
+            <aside class="col-md-3">
+                <div class="sidebar mb-5">
+                    <div class="widget-menu">
+                        <div class="widget-search-bar">
+                            <form role="search" method="get" class="position-relative d-flex justify-content-between align-items-center border-bottom border-dark py-1">
+                                <input class="search-field" placeholder="Search" type="search">
+                                <div class="search-icon position-absolute end-0">
+                                    <a href="#">
+                                        <svg width="26" height="26" class="search">
+                                            <use href="#search"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="widget-product-categories pt-5">
+                        <h5 class="widget-title text-uppercase">Categories</h5>
+                        <ul class="product-categories sidebar-list list-unstyled">
+                            <li class="cat-item">
+                                <a href="#">All</a>
+                            </li>
+                            <li class="cat-item">
+                                <a href="#">Tips</a>
+                            </li>
+                            <li class="cat-item">
+                                <a href="#">Bookstore</a>
+                            </li>
+                            <li class="cat-item">
+                                <a href="#">Authors</a>
+                            </li>
+                            <li class="cat-item">
+                                <a href="#">Spiritual</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-product-tags pt-3">
+                        <h5 class="widget-title text-uppercase">Tags</h5>
+                        <ul class="product-tags sidebar-list list-unstyled">
+                            <li class="tags-item">
+                                <a href="#">Best Store</a>
+                            </li>
+                            <li class="tags-item">
+                                <a href="#">Cheap Book</a>
+                            </li>
+                            <li class="tags-item">
+                                <a href="#">Underrated</a>
+                            </li>
+                            <li class="tags-item">
+                                <a href="#">Latest</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget sidebar-recent-post pt-3">
+                        <h5 class="widget-title text-uppercase">Latest Posts</h5>
+                        <div class="sidebar-post-item">
+                            <div class="d-flex flex-wrap align-items-top mb-3">
+                                <div class="col-lg-4">
+                                    <div class="card-image pe-3 pb-2">
+                                        <a th:href="@{/single-post}">
+                                            <img th:src="@{/images/post-small-image1.jpg}" alt="blog" class="img-fluid">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card-content">
+                                        <h4 class="card-title">
+                                            <a th:href="@{/single-post}">The Power of Bookstores in a Digital Age</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-post-item">
+                            <div class="d-flex flex-wrap align-items-top mb-3">
+                                <div class="col-lg-4">
+                                    <div class="card-image pe-3 pb-2">
+                                        <a th:href="@{/single-post}">
+                                            <img th:src="@{/images/post-small-image2.jpg}" alt="blog" class="img-fluid">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card-content">
+                                        <h4 class="card-title">
+                                            <a th:href="@{/single-post}">How Our Bookstore Brings Literature to Life</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-post-item">
+                            <div class="d-flex flex-wrap align-items-top mb-3">
+                                <div class="col-lg-4">
+                                    <div class="card-image pe-3 pb-2">
+                                        <a th:href="@{/single-post}">
+                                            <img th:src="@{/images/post-small-image3.jpg}" alt="blog" class="img-fluid">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card-content">
+                                        <h4 class="card-title">
+                                            <a th:href="@{/single-post}">The Treasures within Our Bookstore's Walls</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget sidebar-social-links pt-3">
+                        <h5 class="widget-title text-uppercase">Social Links</h5>
+                        <ul class="sidebar-list list-unstyled">
+                            <li class="tags-item">
+                                <a href="#">Facebook</a>
+                            </li>
+                            <li class="tags-item">
+                                <a href="#">Instagram</a>
+                            </li>
+                            <li class="tags-item">
+                                <a href="#">Twitter</a>
+                            </li>
+                            <li class="tags-item">
+                                <a href="#">Pinterest</a>
+                            </li>
+                            <li class="tags-item">
+                                <a href="#">Youtube</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item1.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Feb 22, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">Why Our Bookstore Should Be Your Literary Oasis</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item3.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Feb 22, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">Uncover Hidden Gems at Our Bookstore</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item2.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Feb 25, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">How Our Store Nurtures the Love for Reading</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item4.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Feb 27, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">The Pleasures of Visiting Our Bookstore</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item5.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Mar 09, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a href="@{/single-post}">How Our Bookstore Inspires Readers</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item6.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Mar 09, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">The Unforgettable Finds at Our Bookstore</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item7.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Mar 09, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">The Unique Experience of Our Bookstore</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item8.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Mar 09, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">The Pleasures of Visiting Our Bookstore</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item9.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Mar 09, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">The Journey of Books at Our Bookstore</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item10.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Mar 09, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">Unveiling the Charms of Our Bookstore</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item11.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Mar 09, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">Celebrating the Written Word at Our Bookstore</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-image">
+                                <img th:src="@{/images/post-item12.jpg}" alt="blog-img" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-body text-capitalize">
+                            <div class="card-meta fs-6">
+                                <span class="meta-date">Mar 09, 2023</span>
+                                <span class="meta-category">/ <a th:href="@{/blog}">Tips</a></span>
+                            </div>
+                            <h4 class="card-title">
+                                <a th:href="@{/single-post}">Why Our Bookstore is Every Book Lover's Dream</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <nav class="navigation paging-navigation text-center padding-medium" role="navigation">
+                    <div class="pagination loop-pagination d-flex justify-content-center align-items-center">
+                        <a href="#" class="d-flex pe-2">
+                            <svg width="24" height="24"><use href="#angle-left"></use></svg>
+                        </a>
+                        <span aria-current="page" class="page-numbers current pe-3">1</span>
+                        <a class="page-numbers pe-3" href="#">2</a>
+                        <a class="page-numbers pe-3" href="#">3</a>
+                        <a class="page-numbers pe-3" href="#">4</a>
+                        <a class="page-numbers" href="#">5</a>
+                        <a href="#" class="d-flex ps-2">
+                            <svg width="24" height="24"><use href="#angle-right"></use></svg>
+                        </a>
+                    </div>
+                </nav>
+            </main>
+        </div>
+    </div>
+</section>
+<section id="newsletter" class="bg-gray padding-medium">
+    <div class="container">
+        <div class="newsletter">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 title">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p>Get latest news, updates and deals directly mailed to your inbox.</p>
+                </div>
+                <form class="col-lg-6 col-md-12 d-flex align-items-center">
+                    <div class="d-flex w-75 border-bottom border-dark py-2">
+                        <input id="newsletter1" type="text" class="form-control border-0 p-0" placeholder="Your email address here">
+                        <button class="btn border-0 p-0" type="button">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{home/layout}">
+<head>
+    <title>Author</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<main layout:fragment="main-content">
+    <section class="hero-section bg-gray d-flex align-items-center justify-content-center padding-medium pb-5">
+        <div class="hero-content">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center padding-medium no-padding-bottom">
+                        <h1>Author</h1>
+                        <div class="breadcrumbs">
+                <span class="item">
+                  <a th:href="@{/}">Home ></a>
+                </span>
+                            <span class="item">Author</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="author-grid" class="padding-xlarge">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img th:src="@{/images/author.jpg}" alt="author-image" class="img-fluid">
+                </div>
+                <div class="col-md-7 d-flex align-items-center">
+                    <div class="about-author mt-3">
+                        <div class="country">USA</div>
+                        <h3 class="author-name">Janet Wilson</h3>
+                        <blockquote>"Sit suscipit tortor turpis sed fringilla lectus facilisis amet. Ipsum, amet dolor curabitur non aliquet orci urna volutpat."</blockquote>
+                        <p>Ullamcorper nunc egestas non. Justo, cum feugiat imperdiet nulla molestie ac vulputate scelerisque amet. Bibendum adipiscing platea blandit sit rhoncus. Id aliquam neque, ut vivamus sit imperdiet enim, lacus, vel.</p>
+                        <div class="meta-info">
+                            <div class="meta-item d-flex mb-1">
+                                <span class="text-uppercase me-2">Age:</span>
+                                <ul class="select-list list-unstyled d-flex mb-0">
+                                    <li data-value="S" class="select-item">36</li>
+                                </ul>
+                            </div>
+                            <div class="meta-item d-flex mb-1">
+                                <span class="text-uppercase me-2">Category:</span>
+                                <ul class="select-list list-unstyled d-flex mb-0">
+                                    <li data-value="S" class="select-item">Happy</li>
+                                </ul>
+                            </div>
+                            <div class="meta-item d-flex mb-1">
+                                <span class="text-uppercase me-2">Languages:</span>
+                                <ul class="select-list list-unstyled d-flex mb-0">
+                                    <li data-value="S" class="select-item">English,</li>
+                                    <li data-value="S" class="select-item">French</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="social-links mt-3">
+                            <ul class="d-flex list-unstyled">
+                                <li>
+                                    <a href="#">
+                                        <svg class="facebook">
+                                            <use href="#facebook">
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg class="instagram">
+                                            <use href="#instagram">
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg class="twitter">
+                                            <use href="#twitter">
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg class="linkedin">
+                                            <use href="#linkedin">
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg class="youtube">
+                                            <use href="#youtube">
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="newsletter" class="bg-gray padding-medium">
+        <div class="container">
+            <div class="newsletter">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 title">
+                        <h3>Subscribe to Our Newsletter</h3>
+                        <p>Get latest news, updates and deals directly mailed to your inbox.</p>
+                    </div>
+                    <form class="col-lg-6 col-md-12 d-flex align-items-center">
+                        <div class="d-flex w-75 border-bottom border-dark py-2">
+                            <input id="newsletter1" type="text" class="form-control border-0 p-0" placeholder="Your email address here">
+                            <button class="btn border-0 p-0" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

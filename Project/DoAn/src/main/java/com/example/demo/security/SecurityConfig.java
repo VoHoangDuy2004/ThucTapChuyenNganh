@@ -3,6 +3,7 @@ package com.example.demo.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,22 +11,27 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
     @Bean
     public InMemoryUserDetailsManager userDetailsManager() {
         UserDetails duy = User.builder()
                 .username("duy2004@gmail.com")
                 .password("{noop}123456")
-                .roles("EMPLOYEE")
+                .roles("EMPLOYEE","ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(duy);
     }
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeHttpRequests(configure -> configure
-                        .requestMatchers("/css/**").permitAll()
+        httpSecurity
+                        .csrf(csrf -> csrf.disable())
+                        .authorizeHttpRequests(configure -> configure
+                        .requestMatchers("/css/**","/img/**","/js/**","/vendor/**","/scss/**","/images/**","style.css").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/forgot-password", "/register").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form.loginPage("/login")

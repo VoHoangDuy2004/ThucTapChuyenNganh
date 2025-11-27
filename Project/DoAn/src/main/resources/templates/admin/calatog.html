@@ -11,7 +11,36 @@
 
 <body>
 <main layout:fragment="content">
-    <h1>trang catalog</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="Category:${categories}">
+            <th scope="row">1</th>
+            <td th:text="${Category.title}">Title</td>
+            <td th:text="${Category.image}">Image</td>
+            <td th:text="${Category.status }">Status</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        </tbody>
+    </table>
 </main>
 </body>
 </html>

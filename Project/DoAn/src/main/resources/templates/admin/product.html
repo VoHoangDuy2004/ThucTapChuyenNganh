@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Sản phẩm</title>
+</head>
+
+<body>
+
+<main layout:fragment="content">
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Danh sách Sản phẩm</h5>
+            <a th:href="@{/admin/product/add}" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> Thêm sản phẩm
+            </a>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle">
+                    <thead class="table-light">
+                    <tr>
+                        <th width="60">ID</th>
+                        <th width="100">Ảnh</th>
+                        <th>Tên sách</th>
+
+                        <th width="120">Giá</th>
+                        <th width="180">Danh mục</th>
+                        <th width="100">Trạng thái</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="p : ${products}">
+                        <td th:text="${p.id}" class="text-center"></td>
+
+                        <td class="text-center">
+                            <img th:if="${p.image != null and !p.image.isEmpty()}"
+                                 th:src="${p.image}"
+                                 alt="book"
+                                 style="width:60px; height:80px; object-fit:cover; border-radius:4px; box-shadow:0 2px 5px rgba(0,0,0,0.2);">
+                            <span th:unless="${p.image != null and !p.image.isEmpty()}"
+                                  class="text-muted small">No image</span>
+                        </td>
+
+                        <td>
+                            <strong th:text="${p.title}"></strong>
+                        </td>
+
+                        <td th:text="${p.price} + ' ₫'"></td>
+
+
+                        <td th:text="${p.categoryTitle} ?: 'Chưa xác định'"></td>
+
+
+                        <td class="text-center">
+                            <span th:if="${p.status != 'active'}"
+                                  class="text-danger fw-bold">
+                                Ẩn
+                            </span>
+                        </td>
+
+
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div th:if="${products == null or #lists.isEmpty(products)}"
+                     class="text-center py-5 text-muted">
+                    <i class="fas fa-book-open fa-3x mb-3"></i>
+                    <p>Chưa có sản phẩm nào</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>

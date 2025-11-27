@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Danh mục</title>
+</head>
+
+<body>
+
+<main layout:fragment="content">
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Danh sách Danh mục</h5>
+            <a th:href="@{/admin/category/add}" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> Thêm mới
+            </a>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle">
+                    <thead class="table-light">
+                    <tr>
+                        <th width="80">id</th>
+                        <th>Tên danh mục</th>
+                        <th width="150">Hình ảnh</th>
+                        <th width="120">Trạng thái</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each="cat : ${categories}">
+                        <td th:text="${cat.id}"></td>
+                        <td th:text="${cat.title}"></td>
+                        <td class="text-center">
+                            <img th:if="${cat.image != null and !cat.image.isEmpty()}"
+                                 th:src="${cat.image}"
+                                 alt="image"
+                                 style="width:80px; height:60px; object-fit:cover; border-radius:4px;">
+                            <span th:unless="${cat.image != null and !cat.image.isEmpty()}"
+                                  class="text-muted">Không có ảnh</span>
+                        </td>
+                        <td class="text-center">
+                        <span th:if="${cat.status != 'active'}"
+                              class="text-danger fw-bold">
+                            Ẩn
+                        </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <div th:if="${categories == null or #lists.isEmpty(categories)}"
+                     class="text-center py-5 text-muted">
+                    <i class="fas fa-folder-open fa-3x mb-3"></i>
+                    <p>Chưa có danh mục nào</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>

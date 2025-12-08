@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="category")
 public class Category {
@@ -65,5 +67,15 @@ public class Category {
                 ", image='" + image + '\'' +
                 ", status='" + status + '\'' +
                 '}';
+    }
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

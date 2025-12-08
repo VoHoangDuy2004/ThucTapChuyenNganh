@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/vendor.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,7 +207,6 @@
 </header>
 
     <main layout:fragment="main-content" class="flex-fill "></main>
-
     <footer id="footer" class="overflow-hidden padding-xlarge pb-0 mt-auto">
         <div class="container">
             <div class="row">
@@ -337,6 +337,46 @@
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var categoryEl = document.querySelector('.category-swiper');
+          if (categoryEl) {
+            new Swiper(categoryEl, {
+              slidesPerView: 4,
+              spaceBetween: 20,
+              loop: true,
+              navigation: {
+                nextEl: '.category-next',
+                prevEl: '.category-prev',
+              },
+              breakpoints: {
+                768: { slidesPerView: 2 },
+                992: { slidesPerView: 3 },
+                1200: { slidesPerView: 4 }
+              }
+            });
+          }
+          var productEl = document.querySelector('.product-swiper');
+          if (productEl) {
+            new Swiper(productEl, {
+              slidesPerView: 4,
+              spaceBetween: 20,
+              loop: true,
+              navigation: {
+                nextEl: '.product-next',
+                prevEl: '.product-prev',
+              },
+              breakpoints: {
+                768: { slidesPerView: 2 },
+                992: { slidesPerView: 3 },
+                1200: { slidesPerView: 4 }
+              }
+            });
+          }
+        });
+    </script>
 
 
 </body>

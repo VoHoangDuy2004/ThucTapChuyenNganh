@@ -2,7 +2,9 @@ package com.example.demo.service;
 
 import com.example.demo.dao.CategoryDAO;
 import com.example.demo.dao.CategoryDAOImp;
+import com.example.demo.dao.ProductDAO;
 import com.example.demo.entity.Category;
+import com.example.demo.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -12,11 +14,14 @@ import java.util.List;
 public class CategoryServiceImp implements CategoryService{
 
     private CategoryDAO categoryDAO;
-    @Autowired
-    public CategoryServiceImp(CategoryDAO categoryDAO) {
+    private final ProductDAO productDAO;
+
+    public CategoryServiceImp(ProductDAO productDAO, CategoryDAO categoryDAO) {
+        this.productDAO = productDAO;
         this.categoryDAO = categoryDAO;
     }
 
+    @Autowired
     @Override
     public List<Category> findAll() {
         return categoryDAO.findAll();
@@ -25,16 +30,21 @@ public class CategoryServiceImp implements CategoryService{
 
     @Override
     public Category findById(int id) {
-        return null;
+        return categoryDAO.findById(id);
     }
 
     @Override
     public Category save(Category category) {
-        return null;
+        return categoryDAO.save(category);
     }
 
     @Override
     public void deleteById(int id) {
+        categoryDAO.deleteById(id);
+    }
 
+    @Override
+    public List<Category> findAllByStatus(String status) {
+        return categoryDAO.findAllByStatus(status);
     }
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Xóa danh mục - [[${category.title}]]</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">
+                <i class="fas fa-trash"></i>
+                Xóa danh mục #[[${category.id}]] – [[${category.title}]]
+            </h5>
+        </div>
+
+        <div class="card-body">
+            <p>Bạn có chắc chắn muốn xóa danh mục này không?</p>
+
+            <ul>
+                <li><strong>ID:</strong> <span th:text="${category.id}"></span></li>
+                <li><strong>Tên danh mục:</strong> <span th:text="${category.title}"></span></li>
+                <li><strong>Trạng thái:</strong> <span th:text="${category.status}"></span></li>
+            </ul>
+
+            <form th:action="@{/admin/category/category-delete-form}" method="post">
+                <input type="hidden" name="id" th:value="${category.id}" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Xóa
+                </button>
+                <a th:href="@{/admin/category/category-list}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Hủy
+                </a>
+            </form>
+
+
+
+        </div>
+    </div>
+</main>
+</body>
+</html>

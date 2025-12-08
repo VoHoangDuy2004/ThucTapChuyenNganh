@@ -10,6 +10,7 @@ import java.util.List;
 
 public class ProductServiceImp implements ProductService {
     private ProductDAO productDAO;
+
     @Autowired
     public ProductServiceImp(ProductDAO productDAO) {
         this.productDAO = productDAO;
@@ -22,16 +23,21 @@ public class ProductServiceImp implements ProductService {
 
     @Override
     public Product findById(int id) {
-        return null;
+        return productDAO.findById(id);
     }
 
     @Override
     public Product save(Product product) {
-        return null;
+        return productDAO.save(product);
     }
 
     @Override
     public void deleteById(int id) {
+        productDAO.deleteById(id);
+    }
 
+    @Override
+    public List<Product> findAllByStatus(String status) {
+        return productDAO.findAllByStatus(status);
     }
 }

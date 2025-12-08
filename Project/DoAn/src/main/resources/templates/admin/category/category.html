@@ -10,13 +10,11 @@
 </head>
 
 <body>
-
 <main layout:fragment="content">
-
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Danh sách Danh mục</h5>
-            <a th:href="@{/admin/category/add}" class="btn btn-primary btn-sm">
+            <a th:href="@{/admin/category/category-add-form}" class="btn btn-primary btn-sm">
                 <i class="fas fa-plus"></i> Thêm mới
             </a>
         </div>
@@ -26,17 +24,18 @@
                 <table class="table table-bordered table-hover align-middle">
                     <thead class="table-light">
                     <tr>
-                        <th width="80">id</th>
+                        <th width="80">ID</th>
                         <th>Tên danh mục</th>
                         <th width="150">Hình ảnh</th>
                         <th width="120">Trạng thái</th>
+                        <th width="130">Hành động</th>
                     </tr>
                     </thead>
                     <tbody>
-
                     <tr th:each="cat : ${categories}">
                         <td th:text="${cat.id}"></td>
                         <td th:text="${cat.title}"></td>
+
                         <td class="text-center">
                             <img th:if="${cat.image != null and !cat.image.isEmpty()}"
                                  th:src="${cat.image}"
@@ -45,11 +44,28 @@
                             <span th:unless="${cat.image != null and !cat.image.isEmpty()}"
                                   class="text-muted">Không có ảnh</span>
                         </td>
+
+
                         <td class="text-center">
-                        <span th:if="${cat.status != 'active'}"
-                              class="text-danger fw-bold">
-                            Ẩn
-                        </span>
+                            <span th:if="${cat.status == 'active'}"
+                                  class="badge bg-success form-control">Hiển thị</span>
+                            <span th:unless="${cat.status == 'active'}"
+                                  class="text-danger fw-bold">Ẩn</span>
+                        </td>
+
+
+                        <td class="text-center">
+
+                            <a th:href="@{/admin/category/category-edit-form(id=${cat.id})}"
+                               class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
+
+                            <a th:href="@{/admin/category/category-delete-form(id=${cat.id})}"
+                               class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Xóa
+                            </a>
+
                         </td>
                     </tr>
                     </tbody>
@@ -64,8 +80,6 @@
             </div>
         </div>
     </div>
-
 </main>
-
 </body>
 </html>

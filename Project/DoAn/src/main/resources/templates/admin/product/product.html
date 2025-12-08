@@ -16,7 +16,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Danh sách Sản phẩm</h5>
-            <a th:href="@{/admin/product/add}" class="btn btn-primary btn-sm">
+            <a th:href="@{/admin/product/product-add-form}" class="btn btn-primary btn-sm">
                 <i class="fas fa-plus"></i> Thêm sản phẩm
             </a>
         </div>
@@ -33,6 +33,7 @@
                         <th width="120">Giá</th>
                         <th width="180">Danh mục</th>
                         <th width="100">Trạng thái</th>
+                        <th width="130">Hành động</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -55,16 +56,28 @@
                         <td th:text="${p.price} + ' ₫'"></td>
 
 
-                        <td th:text="${p.categoryTitle} ?: 'Chưa xác định'"></td>
+                        <td th:text="${p.category.title} ?: 'Chưa xác định'"></td>
 
 
                         <td class="text-center">
-                            <span th:if="${p.status != 'active'}"
-                                  class="text-danger fw-bold">
-                                Ẩn
-                            </span>
+                            <span th:if="${p.status == 'active'}"
+                                  class="badge bg-success fw-bold">Hiển thị</span>
+                            <span th:unless="${p.status == 'active'}"
+                                  class="text-danger fw-bold">Ẩn</span>
                         </td>
 
+                        <td class="text-center">
+
+                            <a th:href="@{/admin/product/product-edit-form(id=${p.id})}"
+                               class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
+
+                            <a th:href="@{/admin/product/product-delete-form(id=${p.id})}"
+                               class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Xóa
+                            </a>
+                        </td>
 
                     </tr>
                     </tbody>

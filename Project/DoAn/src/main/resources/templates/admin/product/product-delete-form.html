@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Xóa</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">
+                <i class="fas fa-trash"></i>
+                Xóa sản phẩm
+            </h5>
+        </div>
+
+        <div class="card-body">
+            <p>Bạn có chắc chắn muốn xóa sản phẩm này không?</p>
+
+            <ul>
+                <li><strong>ID:</strong> <span th:text="${product.id}"></span></li>
+                <li><strong>Tên sản phẩm:</strong> <span th:text="${product.title}"></span></li>
+                <li><strong>Giá:</strong> <span th:text="${product.price}"></span></li>
+                <li><strong>Trạng thái:</strong> <span th:text="${product.category.title}"></span></li>
+                <li><strong>Trạng thái:</strong> <span th:text="${product.status}"></span></li>
+            </ul>
+
+            <form th:action="@{/admin/product/product-delete-form}" method="post">
+                <input type="hidden" name="id" th:value="${product.id}" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Xóa
+                </button>
+                <a th:href="@{/admin/product/product-list}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Hủy
+                </a>
+            </form>
+
+
+
+        </div>
+    </div>
+</main>
+</body>
+</html>

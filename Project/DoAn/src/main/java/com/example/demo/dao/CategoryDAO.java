@@ -9,4 +9,6 @@ public interface CategoryDAO {
     Category findById(int id);
     Category save(Category category);
     void deleteById(int id);
+    List<Category> findAllByStatus(String status);
+
 }

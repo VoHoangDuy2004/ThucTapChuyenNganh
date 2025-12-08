@@ -1,42 +1,70 @@
 package com.example.demo.controller;
 
-import com.example.demo.dao.CategoryDAOImp;
-import com.example.demo.dao.ProductDAOImp;
 import com.example.demo.entity.Category;
 import com.example.demo.entity.Product;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/admin/product")
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
-    @Autowired
-    private CategoryService categoryService;
+    private final ProductService productService;
+    private final CategoryService categoryService;
+    public ProductController(ProductService productService, CategoryService categoryService) {
+        this.productService = productService;
+        this.categoryService = categoryService;
+    }
+
+
     @GetMapping("/product-list")
     public String list(Model model) {
         List<Product> products = productService.findAll();
-        List<Category>categories=categoryService.findAll();
-        Map<Integer, String> cateMap = new HashMap<>();
-        for (Category c : categories) {
-            cateMap.put(c.getId(), c.getTitle());
-        }
-        for (Product p : products) {
-            String tenDanhMuc = cateMap.get(p.getId_cate());
-            p.setCategoryTitle(tenDanhMuc != null ? tenDanhMuc : "Chưa xác định");
-        }
         model.addAttribute("products", products);
-        return "admin/product";
+        return "admin/product/product";
     }
+
+    @GetMapping("/product-add-form")
+    public String viewProduct(Model model){
+        Product product=new Product();
+        model.addAttribute("product",product);
+        List<Category>categories=categoryService.findAll();
+        model.addAttribute("categories",categories);
+        return "admin/product/product-add-form";
+    }
+
+    @PostMapping("/product-add-form")
+    public String save(@ModelAttribute("product") Product product) {
+        //System.out.println(product.toString());
+        productService.save(product);
+
+        return "redirect:/admin/product/product-list";
+    }
+
+    @GetMapping("/product-edit-form")
+    public String viewEdit(@RequestParam("id") int id, Model model){
+        Product product=productService.findById(id);
+        System.out.println(product.toString());
+        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("product",product);
+        return "admin/product/product-edit-form";
+    }
+    @GetMapping("/product-delete-form")
+    public String viewDelete(@RequestParam("id")int id, Model model){
+        Product product=productService.findById(id);
+        model.addAttribute("product",product);
+        return "admin/product/product-delete-form";
+    }
+    @PostMapping("/product-delete-form")
+    public String delete(@RequestParam("id") int id){
+        productService.deleteById(id);
+        return "redirect:/admin/product/product-list";
+    }
+
+
 }

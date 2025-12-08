@@ -26,279 +26,51 @@
         </div>
     </div>
 </section>
-<div class="shopify-grid padding-large">
-    <div class="container">
-        <div class="row">
-            <main class="col-md-9">
-                <div class="filter-shop d-flex flex-wrap justify-content-between">
-                    <div class="showing-product">
-                        <p>Showing 1-9 of 55 results</p>
-                    </div>
-                    <div class="sort-by">
-                        <select id="input-sort" class="form-control" data-filter-sort="" data-filter-order="">
-                            <option value="">Default sorting</option>
-                            <option value="">Name (A - Z)</option>
-                            <option value="">Name (Z - A)</option>
-                            <option value="">Price (Low-High)</option>
-                            <option value="">Price (High-Low)</option>
-                            <option value="">Rating (Highest)</option>
-                            <option value="">Rating (Lowest)</option>
-                            <option value="">Model (A - Z)</option>
-                            <option value="">Model (Z - A)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row product-content product-store">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card mb-4">
-                            <div class="image-holder">
-                                <img th:src="@{/images/product-item1.jpg}" alt="product-item" class="img-fluid">
-                            </div>
-                            <div class="card-detail text-center pt-3 pb-2">
-                                <h5 class="card-title fs-4 text-uppercase m-0">
-                                    <a th:href="@{/single-product}">Whispersong</a>
-                                </h5>
-                                <span class="item-price text-primary fs-4">$870</span>
-                                <div class="cart-button mt-1">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card mb-4">
-                            <div class="image-holder">
-                                <img th:src="@{/images/product-item2.jpg}" alt="product-item" class="img-fluid">
-                            </div>
-                            <div class="card-detail text-center pt-3 pb-2">
-                                <h5 class="card-title fs-4 text-uppercase m-0">
-                                    <a th:href="@{/single-product}">Starlight Secrets</a>
-                                </h5>
-                                <span class="item-price text-primary fs-4">$870</span>
-                                <div class="cart-button mt-1">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card mb-4">
-                            <div class="image-holder">
-                                <img th:src="@{/images/product-item3.jpg}" alt="product-item" class="img-fluid">
-                            </div>
-                            <div class="card-detail text-center pt-3 pb-2">
-                                <h5 class="card-title fs-4 text-uppercase m-0">
-                                    <a th:href="@{/single-product}">Shadow Dance</a>
-                                </h5>
-                                <span class="item-price text-primary fs-4">$870</span>
-                                <div class="cart-button mt-1">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card mb-4">
-                            <div class="image-holder">
-                                <img th:src="@{/images/product-item4.jpg}" alt="product-item" class="img-fluid">
-                            </div>
-                            <div class="card-detail text-center pt-3 pb-2">
-                                <h5 class="card-title fs-4 text-uppercase m-0">
-                                    <a th:href="@{/single-product}">Crimson Destiny</a>
-                                </h5>
-                                <span class="item-price text-primary fs-4">$870</span>
-                                <div class="cart-button mt-1">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card mb-4">
-                            <div class="image-holder">
-                                <img th:src="@{/images/product-item5.jpg}" alt="product-item" class="img-fluid">
-                            </div>
-                            <div class="card-detail text-center pt-3 pb-2">
-                                <h5 class="card-title fs-4 text-uppercase m-0">
-                                    <a th:href="@{/single-product}">Enchanted Sands</a>
-                                </h5>
-                                <span class="item-price text-primary fs-4">$870</span>
-                                <div class="cart-button mt-1">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card mb-4">
-                            <div class="image-holder">
-                                <img th:src="@{/images/product-item6.jpg}" alt="product-item" class="img-fluid">
-                            </div>
-                            <div class="card-detail text-center pt-3 pb-2">
-                                <h5 class="card-title fs-4 text-uppercase m-0">
-                                    <a th:href="@{/single-product}">Aetherial Alchemy</a>
-                                </h5>
-                                <span class="item-price text-primary fs-4">$870</span>
-                                <div class="cart-button mt-1">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card mb-4">
-                            <div class="image-holder">
-                                <img th:src="@{/images/product-item7.jpg}" alt="product-item" class="img-fluid">
-                            </div>
-                            <div class="card-detail text-center pt-3 pb-2">
-                                <h5 class="card-title fs-4 text-uppercase m-0">
-                                    <a th:href="@{/single-product}">The Lost Labyrinth</a>
-                                </h5>
-                                <span class="item-price text-primary fs-4">$870</span>
-                                <div class="cart-button mt-1">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card mb-4">
-                            <div class="image-holder">
-                                <img th:src="@{/images/product-item8.jpg}" alt="product-item" class="img-fluid">
-                            </div>
-                            <div class="card-detail text-center pt-3 pb-2">
-                                <h5 class="card-title fs-4 text-uppercase m-0">
-                                    <a th:href="@{/single-product}">Crystal Caverns</a>
-                                </h5>
-                                <span class="item-price text-primary fs-4">$870</span>
-                                <div class="cart-button mt-1">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card mb-4">
-                            <div class="image-holder">
-                                <img th:src="@{/images/product-item9.jpg}" alt="product-item" class="img-fluid">
-                            </div>
-                            <div class="card-detail text-center pt-3 pb-2">
-                                <h5 class="card-title fs-4 text-uppercase m-0">
-                                    <a th:href="@{/single-product}">Scarlet Secrets</a>
-                                </h5>
-                                <span class="item-price text-primary fs-4">$870</span>
-                                <div class="cart-button mt-1">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <nav class="navigation paging-navigation text-center padding-medium" role="navigation">
-                    <div class="pagination loop-pagination d-flex justify-content-center align-items-center">
-                        <a href="#" class="d-flex pe-2">
-                            <svg width="24" height="24"><use href="#angle-left"></use></svg>
-                        </a>
-                        <span aria-current="page" class="page-numbers current pe-3">1</span>
-                        <a class="page-numbers pe-3" href="#">2</a>
-                        <a class="page-numbers pe-3" href="#">3</a>
-                        <a class="page-numbers pe-3" href="#">4</a>
-                        <a class="page-numbers" href="#">5</a>
-                        <a href="#" class="d-flex ps-2">
-                            <svg width="24" height="24"><use href="#angle-right"></use></svg>
-                        </a>
-                    </div>
-                </nav>
-            </main>
-            <aside class="col-md-3">
-                <div class="sidebar">
-                    <div class="widget-menu">
-                        <div class="widget-search-bar">
-                            <form role="search" method="get" class="position-relative d-flex justify-content-between align-items-center border-bottom border-dark py-1">
-                                <input class="search-field" placeholder="Search" type="search">
-                                <div class="search-icon position-absolute end-0">
-                                    <a href="#">
-                                        <svg width="26" height="26" class="search">
-                                            <use href="#search"></use>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="widget-product-categories pt-5">
-                        <h5 class="widget-title text-uppercase">Categories</h5>
-                        <ul class="product-categories sidebar-list list-unstyled">
-                            <li class="cat-item">
-                                <a href="#">All</a>
-                            </li>
-                            <li class="cat-item">
-                                <a href="#">Spiritual</a>
-                            </li>
-                            <li class="cat-item">
-                                <a href="#">Money</a>
-                            </li>
-                            <li class="cat-item">
-                                <a href="#">Life</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="widget-product-tags pt-3">
-                        <h5 class="widget-title text-uppercase">Tags</h5>
-                        <ul class="product-tags sidebar-list list-unstyled">
-                            <li class="tags-item">
-                                <a href="#">Finance</a>
-                            </li>
-                            <li class="tags-item">
-                                <a href="#">Cheap</a>
-                            </li>
-                            <li class="tags-item">
-                                <a href="#">Story</a>
-                            </li>
-                            <li class="tags-item">
-                                <a href="#">Biography</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="widget-product-brands pt-3">
-                        <h5 class="widget-title text-uppercase">Latest Products</h5>
-                        <ul class="product-tags sidebar-list list-unstyled">
-                            <li class="tags-item">
-                                <a href="#">Dance of Fireflies</a>
-                            </li>
-                            <li class="tags-item">
-                                <a href="#">Starry Horizons</a>
-                            </li>
-                            <li class="tags-item">
-                                <a href="#">Tales of Tranquility</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="widget-price-filter pt-3">
-                        <h5 class="widget-title text-uppercase">Filter By Price</h5>
-                        <ul class="product-tags sidebar-list list-unstyled">
-                            <li class="tags-item">
-                                <a href="#">Less than $100</a>
-                            </li>
-                            <li class="tags-item">
-                                <a href="#">$100 - $200</a>
-                            </li>
-                            <li class="tags-item">
-                                <a href="#">$200 - $300</a>
-                            </li>
-                            <li class="tags-item">
-                                <a href="#">$300 - $400</a>
-                            </li>
-                            <li class="tags-item">
-                                <a href="#">$400 - $500</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </aside>
+<section id="products" class="product-store position-relative padding-xlarge pb-0">
+        <div class="container display-header d-flex flex-wrap justify-content-between pb-4">
+            <h3 class="mt-3">Sản phẩm nổi bật</h3>
+            <div class="btn-right d-flex flex-wrap align-items-center">
+                <a th:href="@{/shop}" class="btn me-5">View all items →</a>
+            </div>
         </div>
-    </div>
-</div>
+        <div class="swiper product-swiper">
+            <div class="swiper-wrapper">
+                <th:block th:each="p : ${products}">
+                    <div class="swiper-slide">
+                        <div class="product-card text-center">
+                            <div class="image-holder">
+                                <img th:if="${p.image != null and !p.image.isEmpty()}"
+                                     th:src="${p.image}"
+                                     alt="product"
+                                     class="img-fluid rounded shadow-sm mx-auto"
+                                     style="width:100%; max-width:280px; height:420px; object-fit:cover;"
+                                     onerror="this.src='/images/no-image.jpg'">
+                            </div>
+                            <div class="card-detail text-center pt-3 pb-2">
+                                <h5 class="card-title fs-5 text-uppercase m-0">
+                                    <a th:href="@{/product(id=${p.id})}" th:text="${p.title}">Tên sách</a>
+                                </h5>
+                                <span class="item-price text-primary fs-4"
+                                      th:text="${p.price} + '₫'"></span>
+                                <div class="cart-button mt-2">
+                                    <a href="#" class="btn btn-outline-primary">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+        </div>
+        <div class="swiper-buttons text-center mt-3">
+            <button class="swiper-prev product-prev me-2">
+                <svg width="41" height="41"><use href="#angle-left"></use></svg>
+            </button>
+            <button class="swiper-next product-next">
+                <svg width="41" height="41"><use href="#angle-right"></use></svg>
+            </button>
+        </div>
+    </section>
+
 <section id="newsletter" class="bg-gray padding-medium">
     <div class="container">
         <div class="newsletter">

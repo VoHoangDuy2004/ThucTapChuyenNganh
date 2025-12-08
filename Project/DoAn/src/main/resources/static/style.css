@@ -799,3 +799,7 @@ h5.widget-title {
 .post-navigation:focus svg {
   fill: var(--primary-color);
 }
+.product-swiper .swiper-slide {
+  width: auto;
+  flex-shrink: 0;
+}

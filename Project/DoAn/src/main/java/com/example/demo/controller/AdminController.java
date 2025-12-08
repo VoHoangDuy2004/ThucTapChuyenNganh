@@ -9,6 +9,15 @@ public class AdminController {
     public String Admin(){
         return "admin";
     }
+    @GetMapping("/admin/categories")
+    public String viewCategory() {
+        return "admin/category/categories";
+    }
+
+    @GetMapping("/admin/products")
+    public String viewProducts() {
+        return "admin/product/products";
+    }
     @GetMapping("/buttons")
     public String Buttons(){
         return "admin/buttons";

@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -68,11 +69,19 @@ public class Category {
                 ", status='" + status + '\'' +
                 '}';
     }
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
     private List<Product> products;
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    public void add(Product tempProduct){
+        if(products==null){
+            products=new ArrayList<>();
+        }
+        products.add(tempProduct);
+        tempProduct.setCategory(this);
     }
 
     public void setProducts(List<Product> products) {

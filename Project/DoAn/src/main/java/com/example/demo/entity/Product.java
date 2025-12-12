@@ -22,16 +22,26 @@ public class Product {
     @JoinColumn(name = "id_cate")
     private Category category;
 
+    @Column(name = "description")
+    private String description;
+    @Column(name = "author")
+    private String author;
+    @Column(name = "publisher")
+    private String publisher;
+
     public Product() {
     }
 
-    public Product(int id, String title, String image, Float price, String status, Category category) {
+    public Product(int id, String title, String image, Float price, String status, Category category, String description, String author, String publisher) {
         this.id = id;
         this.title = title;
         this.image = image;
         this.price = price;
         this.status = status;
         this.category = category;
+        this.description = description;
+        this.author = author;
+        this.publisher = publisher;
     }
 
     public int getId() {
@@ -82,6 +92,30 @@ public class Product {
         this.category = category;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -90,7 +124,10 @@ public class Product {
                 ", image='" + image + '\'' +
                 ", price=" + price +
                 ", status='" + status + '\'' +
-                ", category=" + category.getId() +
+                ", category=" + category +
+                ", description='" + description + '\'' +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
                 '}';
     }
 }

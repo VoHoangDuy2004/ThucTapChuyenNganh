@@ -10,4 +10,5 @@ public interface CategoryService {
     Category save(Category category);
     void deleteById(int id);
     List<Category> findAllByStatus(String status);
+
 }

@@ -4,9 +4,11 @@ import com.example.demo.entity.Category;
 import com.example.demo.entity.Product;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.ProductService;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.swing.text.View;
 import java.util.List;
@@ -31,20 +33,44 @@ public class HomeController {
     }
     @GetMapping("/shop")
     public String Shop(Model model){
+        List<Category>categories=categoryService.findAllByStatus("active");
         List<Product> products = productService.findAllByStatus("active");
+        model.addAttribute("categories",categories);
         model.addAttribute("products", products);
         return "home/shop";
     }
+    @GetMapping("/shop/category/{id}")
+    public String shopByCategory(@PathVariable int id, Model model) {
+
+        List<Category> categories = categoryService.findAllByStatus("active");
+
+        List<Product> products = productService.findByCategoryId(id);
+
+        Category category = categoryService.findById(id);
+
+        model.addAttribute("categories", categories);
+        model.addAttribute("products", products);
+        model.addAttribute("category", category);
+
+        return "home/shop";
+    }
+
     @GetMapping("/about")
     public String About(){
         return "home/about";
     }
-    @GetMapping("/single-product")
-    public String SingleProduct(Model model){
-        List<Product> products = productService.findAllByStatus("active");
+
+    @Transactional
+    @GetMapping("/product/{id}")
+    public String SingleProduct(@PathVariable int id, Model model){
+        Product product=productService.findById(id);
+        model.addAttribute("product",product);
+        List<Product> products = productService.findByCategoryId(product.getCategory().getId());
         model.addAttribute("products", products);
+        products.removeIf(p -> p.getId() == id);
         return "home/single-product";
     }
+
     @GetMapping("/author")
     public String Author(){
         return "home/author";

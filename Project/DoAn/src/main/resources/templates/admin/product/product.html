@@ -26,13 +26,14 @@
                 <table class="table table-bordered table-hover align-middle">
                     <thead class="table-light">
                     <tr>
-                        <th width="60">ID</th>
-                        <th width="100">Ảnh</th>
-                        <th>Tên sách</th>
-
-                        <th width="120">Giá</th>
-                        <th width="180">Danh mục</th>
-                        <th width="100">Trạng thái</th>
+                        <th width="50">ID</th>
+                        <th width="80">Ảnh</th>
+                        <th width="250">Tên sách</th>
+                        <th width="120">Tác giả</th>
+                        <th width="120">Nhà xuất bản </th>
+                        <th width="100">Giá</th>
+                        <th width="150">Danh mục</th>
+                        <th width="80">Trạng thái</th>
                         <th width="130">Hành động</th>
                     </tr>
                     </thead>
@@ -49,15 +50,17 @@
                                   class="text-muted small">No image</span>
                         </td>
 
-                        <td>
+                        <td style="width: 250px;">
                             <strong th:text="${p.title}"></strong>
                         </td>
 
+                        <td th:text="${p.author}"></td>
+
+                        <td th:text="${p.publisher}"></td>
+
                         <td th:text="${p.price} + ' ₫'"></td>
 
-
                         <td th:text="${p.category.title} ?: 'Chưa xác định'"></td>
-
 
                         <td class="text-center">
                             <span th:if="${p.status == 'active'}"

@@ -40,4 +40,9 @@ public class ProductServiceImp implements ProductService {
     public List<Product> findAllByStatus(String status) {
         return productDAO.findAllByStatus(status);
     }
+
+    @Override
+    public List<Product> findByCategoryId(int id_cate) {
+        return productDAO.findByCategoryId(id_cate);
+    }
 }

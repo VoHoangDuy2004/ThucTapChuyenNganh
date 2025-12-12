@@ -22,7 +22,7 @@
                 <div class="banner-content">
                   <h2>Ngày xửa ngày xưa</h2>
                   <p class="fs-3">Truyền thống.</p>
-                  <a th:href="@{/single-product}" class="btn">Shop now →</a>
+                  <a th:href="@{/shop}" class="btn">Shop now →</a>
                 </div>
               </div>
             </div>
@@ -141,15 +141,15 @@
     <div class="swiper-wrapper">
       <th:block th:each="cat : ${categories}">
         <div class="swiper-slide">
-          <a th:href="@{/category(id=${cat.id})}" class="text-decoration-none text-inherit">
+          <a th:href="@{/shop/category/{id}(id=${cat.id})}" class="text-decoration-none text-inherit">
             <div class="card card-product mb-lg-4 text-center">
               <div class="card-body py-4">
                 <img th:if="${cat.image != null and !cat.image.isEmpty()}"
-                     th:src="${cat.image}"
+                     th:src="@{${cat.image}}"
                      alt="category"
                      class="img-fluid rounded shadow-sm mx-auto"
                      style="width:100%; max-width:280px; height:420px; object-fit:cover;"
-                     onerror="this.src='/images/no-image.jpg'">
+                     onerror="this.onerror=null;this.src='/images/no-image.jpg'">
                 <span th:unless="${cat.image != null and !cat.image.isEmpty()}"
                       class="text-muted">Không có ảnh</span>
                 <h5 class="text-truncate" th:text="${cat.title}">Tên danh mục</h5>
@@ -294,7 +294,7 @@
     <div class="container display-header d-flex flex-wrap justify-content-between pb-4">
       <h3 class="mt-3">Sản phẩm nổi bật</h3>
       <div class="btn-right d-flex flex-wrap align-items-center">
-        <a th:href="@{/shop}" class="btn me-5">View all items →</a>
+        <a th:href="@{/shop}" class="btn me-5">Xem tất cả →</a>
       </div>
     </div>
     <div class="swiper product-swiper">
@@ -302,23 +302,24 @@
         <th:block th:each="p : ${products}">
           <div class="swiper-slide">
             <div class="product-card text-center">
+
               <div class="image-holder">
-                <img th:if="${p.image != null and !p.image.isEmpty()}"
-                     th:src="${p.image}"
-                     alt="product"
-                     class="img-fluid rounded shadow-sm mx-auto"
-                     style="width:100%; max-width:280px; height:420px; object-fit:cover;"
-                     onerror="this.src='/images/no-image.jpg'">
+                <a th:href="@{/product/{id}(id=${p.id})}">
+                  <img th:if="${p.image != null and !p.image.isEmpty()}"
+                       th:src="@{${p.image}}"
+                       alt="product"
+                       class="img-fluid rounded shadow-sm mx-auto"
+                       style="width:100%; max-width:280px; height:420px; object-fit:cover;"
+                       onerror="this.onerror=null;this.src='/images/no-image.jpg'">
+                </a>
               </div>
+
               <div class="card-detail text-center pt-3 pb-2">
                 <h5 class="card-title fs-5 text-uppercase m-0">
-                  <a th:href="@{/product(id=${p.id})}" th:text="${p.title}">Tên sách</a>
+                  <a th:href="@{/product/{id}(id=${p.id})}" th:text="${p.title}">Tên sách</a>
                 </h5>
                 <span class="item-price text-primary fs-4"
-                      th:text="${p.price} + '₫'"></span>
-                <div class="cart-button mt-2">
-                  <a href="#" class="btn btn-outline-primary">Add to cart</a>
-                </div>
+                      th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'COMMA')} + '₫'"></span>
               </div>
             </div>
           </div>

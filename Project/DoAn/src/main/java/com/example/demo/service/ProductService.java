@@ -11,4 +11,5 @@ public interface ProductService {
     void deleteById(int id);
 
     List<Product> findAllByStatus(String status);
+    List<Product>findByCategoryId(int id_cate);
 }
